@@ -1,0 +1,27 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = RPXGate.exe RPXClient.exe RPXCapTest.exe
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+
+RPXGate.exe: Demos\Gateway\RPXGate.dpr
+  $(DCC)
+
+RPXClient.exe: Demos\Client\RPXClient.dpr
+  $(DCC)
+
+RPXCapTest.exe: Demos\TestCap\RPXCapTest.dpr
+  $(DCC)
+
+
